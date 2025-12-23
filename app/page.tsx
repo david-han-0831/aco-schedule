@@ -9,6 +9,7 @@ import { DateAttendanceModal } from "@/components/date-attendance-modal";
 import { cn } from "@/lib/utils";
 import { useAuth } from "@/contexts/AuthContext";
 import { canAccessDashboard } from "@/lib/permissions";
+import { Instrument } from "@/lib/firestore";
 
 interface Member {
   id: string;
