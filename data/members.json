@@ -1,0 +1,105 @@
+{
+  "members": [
+    {
+      "id": 1,
+      "name": "김민정",
+      "instrument": "Fl",
+      "part": "1st",
+      "remarks": "",
+      "createdAt": "2025-01-27T00:00:00Z",
+      "updatedAt": "2025-01-27T00:00:00Z"
+    },
+    {
+      "id": 2,
+      "name": "박준형",
+      "instrument": "Fl",
+      "part": "2nd",
+      "remarks": "",
+      "createdAt": "2025-01-27T00:00:00Z",
+      "updatedAt": "2025-01-27T00:00:00Z"
+    },
+    {
+      "id": 3,
+      "name": "고한솔",
+      "instrument": "Cl",
+      "part": "1st",
+      "remarks": "",
+      "createdAt": "2025-01-27T00:00:00Z",
+      "updatedAt": "2025-01-27T00:00:00Z"
+    },
+    {
+      "id": 4,
+      "name": "박은경",
+      "instrument": "Cl",
+      "part": "2nd",
+      "remarks": "",
+      "createdAt": "2025-01-27T00:00:00Z",
+      "updatedAt": "2025-01-27T00:00:00Z"
+    },
+    {
+      "id": 5,
+      "name": "한동윤",
+      "instrument": "Cl",
+      "part": "",
+      "remarks": "",
+      "createdAt": "2025-01-27T00:00:00Z",
+      "updatedAt": "2025-01-27T00:00:00Z"
+    },
+    {
+      "id": 6,
+      "name": "이승윤",
+      "instrument": "Ob",
+      "part": "1st",
+      "remarks": "",
+      "createdAt": "2025-01-27T00:00:00Z",
+      "updatedAt": "2025-01-27T00:00:00Z"
+    },
+    {
+      "id": 7,
+      "name": "신주안",
+      "instrument": "Ob",
+      "part": "2nd",
+      "remarks": "",
+      "createdAt": "2025-01-27T00:00:00Z",
+      "updatedAt": "2025-01-27T00:00:00Z"
+    },
+    {
+      "id": 8,
+      "name": "이진웅",
+      "instrument": "Tp",
+      "part": "1st",
+      "remarks": "",
+      "createdAt": "2025-01-27T00:00:00Z",
+      "updatedAt": "2025-01-27T00:00:00Z"
+    },
+    {
+      "id": 9,
+      "name": "노승현",
+      "instrument": "Tp",
+      "part": "2nd",
+      "remarks": "",
+      "createdAt": "2025-01-27T00:00:00Z",
+      "updatedAt": "2025-01-27T00:00:00Z"
+    },
+    {
+      "id": 10,
+      "name": "정주희",
+      "instrument": "Hn",
+      "part": "1st",
+      "remarks": "",
+      "createdAt": "2025-01-27T00:00:00Z",
+      "updatedAt": "2025-01-27T00:00:00Z"
+    },
+    {
+      "id": 11,
+      "name": "우정곤",
+      "instrument": "Tb",
+      "part": "1st",
+      "remarks": "",
+      "createdAt": "2025-01-27T00:00:00Z",
+      "updatedAt": "2025-01-27T00:00:00Z"
+    }
+  ],
+  "lastId": 11
+}
+

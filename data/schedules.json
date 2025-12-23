@@ -1,0 +1,41 @@
+{
+  "schedules": [
+    {
+      "memberId": 5,
+      "memberName": "한동윤",
+      "availableDays": ["목", "금", "토"],
+      "weekStartDate": "2025-01-27",
+      "updatedAt": "2025-01-27T00:00:00Z"
+    },
+    {
+      "memberId": 7,
+      "memberName": "신주안",
+      "availableDays": ["화", "수", "토"],
+      "weekStartDate": "2025-01-27",
+      "updatedAt": "2025-01-27T00:00:00Z"
+    },
+    {
+      "memberId": 1,
+      "memberName": "김민정",
+      "availableDays": ["화", "수", "목", "토"],
+      "weekStartDate": "2025-01-27",
+      "updatedAt": "2025-01-27T00:00:00Z"
+    },
+    {
+      "memberId": 10,
+      "memberName": "정주희",
+      "availableDays": ["목", "금"],
+      "weekStartDate": "2025-01-27",
+      "updatedAt": "2025-01-27T00:00:00Z"
+    },
+    {
+      "memberId": 4,
+      "memberName": "박은경",
+      "availableDays": ["화", "목"],
+      "weekStartDate": "2025-01-27",
+      "updatedAt": "2025-01-27T00:00:00Z"
+    }
+  ],
+  "currentWeek": "2025-01-27"
+}
+
