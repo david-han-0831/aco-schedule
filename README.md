@@ -1,53 +1,59 @@
-# 🎼 ACO (안양시민오케스트라) 관리 시스템
+# ACO 관리 시스템
 
 안양시민오케스트라 구성원 및 연습일정을 관리하는 웹 애플리케이션입니다.
 
-## 🎯 주요 기능
+## 주요 기능
 
-- **대시보드**: 전체 구성원 현황 및 통계 정보
-- **회원 관리**: 구성원 정보 등록, 수정, 삭제, 조회
-- **연습일정 관리**: 요일별 연습일정 및 출석 현황 관리 (캘린더 뷰 포함)
+- 📊 **대시보드**: 전체 현황 및 통계 정보 확인
+- 👥 **회원 관리**: 구성원 정보 관리 (Admin, SuperAdmin 권한)
+- 📅 **연습일정 관리**: 개인별 출석 가능 날짜 등록 및 확인
+- 🔐 **역할 기반 접근 제어**: SuperAdmin, Admin, User 역할 관리
 
-## 🛠️ 기술 스택
+## 기술 스택
 
-- **Next.js** (App Router)
-- **TypeScript**
-- **Firebase Firestore** (데이터베이스)
-- **Tailwind CSS** + **shadcn/ui**
+- **Frontend**: Next.js 14 (App Router), React, TypeScript
+- **Styling**: Tailwind CSS, shadcn/ui
+- **Backend**: Firebase Firestore, Firebase Authentication
+- **Deployment**: Vercel
 
-## 📦 프로젝트 구조
+## 시작하기
 
-```
-aco/
-├── docs/                    # 개발 문서
-│   ├── requirements/        # 요구사항 정의서
-│   └── features/           # 기능별 설계 문서
-├── app/                     # Next.js App Router
-│   ├── api/                 # API Routes
-│   ├── members/            # 회원 관리 페이지
-│   └── schedules/          # 연습일정 관리 페이지
-├── components/              # React 컴포넌트
-│   ├── ui/                 # UI 컴포넌트
-│   └── calendar-view.tsx   # 캘린더 뷰 컴포넌트
-├── lib/                     # 유틸리티 함수
-│   ├── firebase.ts         # Firebase 초기화
-│   └── firestore.ts        # Firestore 함수
-└── scripts/                 # 유틸리티 스크립트
+### 1. 저장소 클론
+
+```bash
+git clone https://github.com/david-han-0831/aco-schedule.git
+cd aco-schedule
 ```
 
-## 🚀 시작하기
-
-### 설치
+### 2. 의존성 설치
 
 ```bash
 npm install
 ```
 
-### 환경 설정
+### 3. 환경 변수 설정
 
-Firebase 설정은 `lib/firebase.ts`에 이미 구성되어 있습니다.
+`.env.local.example` 파일을 `.env.local`로 복사하고 Firebase 설정 값을 입력하세요:
 
-### 개발 서버 실행
+```bash
+cp .env.local.example .env.local
+```
+
+`.env.local` 파일에 다음 Firebase 설정을 입력하세요:
+
+```env
+NEXT_PUBLIC_FIREBASE_API_KEY=your-api-key
+NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=your-project-id.firebaseapp.com
+NEXT_PUBLIC_FIREBASE_PROJECT_ID=your-project-id
+NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=your-project-id.firebasestorage.app
+NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=your-messaging-sender-id
+NEXT_PUBLIC_FIREBASE_APP_ID=your-app-id
+NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID=your-measurement-id
+```
+
+Firebase 설정 값은 [Firebase Console](https://console.firebase.google.com/) > 프로젝트 설정 > 일반 > 내 앱에서 확인할 수 있습니다.
+
+### 4. 개발 서버 실행
 
 ```bash
 npm run dev
@@ -55,51 +61,46 @@ npm run dev
 
 브라우저에서 [http://localhost:3000](http://localhost:3000)을 열어 확인하세요.
 
-### 데이터 마이그레이션 (선택사항)
+## 배포
 
-기존 JSON 파일 데이터를 Firestore로 마이그레이션하려면:
+### Vercel 배포
 
-```bash
-npx ts-node scripts/migrate-to-firestore.ts
+1. [Vercel](https://vercel.com)에 프로젝트를 연결합니다.
+2. 환경 변수를 Vercel 대시보드에서 설정합니다:
+   - Settings > Environment Variables에서 위의 모든 `NEXT_PUBLIC_FIREBASE_*` 변수를 추가합니다.
+3. 배포가 자동으로 진행됩니다.
+
+### Firebase 설정
+
+Firebase 프로젝트가 설정되어 있어야 합니다:
+- Firestore Database 생성
+- Authentication 활성화 (Google 로그인, 이메일/비밀번호)
+- Firestore Security Rules 설정 (`firestore.rules` 참고)
+
+## 프로젝트 구조
+
+```
+aco/
+├── app/                    # Next.js App Router 페이지
+│   ├── api/               # API 라우트
+│   ├── members/           # 회원 관리 페이지
+│   ├── schedules/         # 연습일정 페이지
+│   └── ...
+├── components/            # React 컴포넌트
+│   ├── ui/               # UI 컴포넌트 (shadcn/ui)
+│   └── ...
+├── contexts/              # React Context
+├── lib/                   # 유틸리티 및 Firebase 설정
+├── docs/                  # 문서
+└── data/                  # 초기 데이터 (JSON)
 ```
 
-## 📚 문서
+## 역할 및 권한
 
-자세한 개발 문서는 [`docs/README.md`](./docs/README.md)를 참고하세요.
+- **SuperAdmin**: 모든 기능 접근 가능, 사용자 역할 관리
+- **Admin**: 대시보드, 회원 관리, 연습일정 접근 가능
+- **User**: 대시보드, 연습일정 접근 가능 (본인 일정만)
 
-## 🔥 Firebase Firestore 구조
+## 라이선스
 
-### Collections
-
-- **members**: 회원 정보
-  - `id` (자동 생성)
-  - `name`: 이름
-  - `instrument`: 악기 약식
-  - `part`: 파트 (선택사항)
-  - `remarks`: 비고 (선택사항)
-  - `createdAt`: 생성일
-  - `updatedAt`: 수정일
-
-- **instruments**: 악기 정보
-  - `id` (자동 생성)
-  - `name`: 한글명
-  - `english`: 영어명
-  - `abbreviation`: 약식
-
-- **schedules**: 연습일정
-  - `id` (자동 생성)
-  - `memberId`: 회원 ID
-  - `memberName`: 회원 이름
-  - `availableDays`: 출석 가능 요일 배열
-  - `weekStartDate`: 주 시작일
-  - `updatedAt`: 수정일
-
-## 📝 개발 상태
-
-- [x] 요구사항 정의서 작성
-- [x] 기능별 설계 문서 작성
-- [x] Next.js 프로젝트 초기 설정
-- [x] Firebase Firestore 연동
-- [x] 회원 관리 시스템 개발
-- [x] 연습일정 관리 시스템 개발 (캘린더 뷰 포함)
-- [x] 대시보드 개발
+이 프로젝트는 비공개 프로젝트입니다.
