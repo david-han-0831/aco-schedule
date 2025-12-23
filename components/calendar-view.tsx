@@ -261,15 +261,15 @@ export function CalendarView({ members, schedules, onUpdate }: CalendarViewProps
     console.log("Updated schedule:", updated[index]);
     console.log("All localSchedules:", updated);
     
-    return updated;
-    
     // 토스트 표시 (상태 업데이트 후)
-    if (toastMessage) {
+    if (toastMessage !== null) {
       console.log("Calling addToast:", toastMessage, toastType);
       addToast(toastMessage, toastType, 2000);
     } else {
       console.log("No toast message (toggle:", toggle, "shouldShowToast:", shouldShowToast, ")");
     }
+    
+    return updated;
   };
 
   const handleMouseEnter = (date: Date) => {
