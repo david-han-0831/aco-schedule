@@ -255,6 +255,8 @@ export function DashboardCalendar({ members, schedules, onDateClick }: Dashboard
                         const member = members.find((m) => m.id === schedule.memberId);
                         // member가 없어도 schedule.memberName을 사용
                         const displayName = member?.name || schedule.memberName || "알 수 없음";
+                        const instrument = member?.instrument || "";
+                        const displayText = instrument ? `${displayName} ${instrument}` : displayName;
                         const dateStr = formatDate(date);
                         const memo = schedule.dateNotes?.[dateStr] || "";
                         return (
@@ -265,7 +267,7 @@ export function DashboardCalendar({ members, schedules, onDateClick }: Dashboard
                               "bg-white/80 border border-gray-200",
                               "hover:bg-white hover:shadow-sm transition-all"
                             )}
-                            title={memo ? `${displayName}: ${memo}` : displayName}
+                            title={memo ? `${displayText}: ${memo}` : displayText}
                           >
                             <div
                               className={cn(
@@ -274,7 +276,7 @@ export function DashboardCalendar({ members, schedules, onDateClick }: Dashboard
                               )}
                             />
                             <span className="text-gray-700 font-medium truncate flex-1">
-                              {displayName}
+                              {displayText}
                             </span>
                           </div>
                         );
